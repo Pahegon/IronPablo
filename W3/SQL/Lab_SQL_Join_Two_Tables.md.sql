@@ -37,9 +37,11 @@ group by category_id;
 select * from staff;
 select * from address;
 
-select staff.first_name, staff.last_name, address.addres1 from staff
+select first_name, last_name, addres1 from staff
 join address
-using (address_id);
+using (address_id)
+order by staff.first_name desc
+
 
 #5.Display the total amount rung up by each staff member in August of 2005.
 select * from staff;
@@ -53,3 +55,15 @@ join payment
 using (staff_id)
 where payment_date like "2005-08%"
 group by staff_id
+
+#6.List each film and the number of actors who are listed for that film.
+
+select title, film, count(actor_id), total
+from film
+join film_actor 
+using (film_id)
+group by film_id
+order by total desc
+limit 10
+
+#7.Using the tables payment and customer and the JOIN command, list the total paid by each customer. List the customers alphabetically by last name.
