@@ -89,12 +89,14 @@ where country = "Canada"))
 select 
 
 select first_name, last_name, email from customer
-where address_id in (select city_id from city
+where address_id in (select address_id from address
+where city_id in (select city_id from city
 where country_id = (select country_id from country
-where country = "Canada"))
+where country = "Canada")))
 
 
-
+#6.Which are films starred by the most prolific actor? Most prolific actor is defined as the actor that has acted in the most number of films.
+# First you will have to find the most prolific actor and then use that actor_id to find the different films that he/she starred.
 
 
 
