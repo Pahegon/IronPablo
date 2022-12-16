@@ -5,10 +5,7 @@ use sakila;
 select * from actor;
 select * from film_actor;
 
-select actor.first_name, actor.last_name, count(film_actor.film_id) from actor
-join film_actor  using (actor_id)
-group by actor_id
-order by count(film_actor.film_id) desc
+
 limit 1;
 
 #2.Most active customer (the customer that has rented the most number of films)
